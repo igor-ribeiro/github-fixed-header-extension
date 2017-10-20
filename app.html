@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Getting Started Extension's Popup</title>
+    <script src="utils.js"></script>
+    <script src="app.js"></script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .app {
+        min-width: 150px;
+        padding: 12px 24px 12px 12px;
+      }
+
+      .field-group {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        font-weight: bolder;
+      }
+
+      .field-input {
+        width: 24px;
+        height: 24px;
+        opacity: 0;
+        position: absolute;
+        pointer-events: none;
+      }
+
+      .field-checkbox {
+        width: 28px;
+        height: 32px;
+        border: 1px solid #bbb;
+        border-width: 1px 0;
+        position: relative;
+        background: #eee;
+      }
+
+      .field-checkbox:before,
+      .field-checkbox:after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 32px;
+        height: 30px;
+        border-radius: 50%;
+        top: -1px;
+        border: 1px solid #bbb;
+        z-index: -1;
+        background: #eee;
+      }
+
+      .field-checkbox:before {
+        left: 0;
+        transform: translateX(-50%);
+        border-right-color: transparent;
+      }
+
+      .field-checkbox:after {
+        right: 0;
+        transform: translateX(50%);
+        border-left-color: transparent;
+      }
+
+      .field-checkbox-value {
+        width: 28px;
+        height: 28px;
+        background: #aaa;
+        border-radius: 50%;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-100%, -50%);
+        transition: transform .2s;
+      }
+
+      .field-input:checked ~ .field-checkbox  .field-checkbox-value {
+        transform: translate(0, -50%);
+        background: #24292e;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app">
+      <label class="field-group">
+        <span class="field-label">Fix header</span>
+        <input class="field-input" type="checkbox" />
+        <div class="field-checkbox">
+          <div class="field-checkbox-value"></div>
+        </div>
+      </label>
+    </div>
+  </body>
+</html>

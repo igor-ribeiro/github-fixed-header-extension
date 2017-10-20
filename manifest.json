@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+
+  "name": "Github fixed header",
+  "description": "This extension sets the Github header to be fixed",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_popup": "app.html"
+  },
+
+  "content_scripts": [{
+    "matches": ["https://*.github.com/*"],
+    "js": ["utils.js", "injected.js"]
+  }],
+
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "storage"
+  ]
+}
